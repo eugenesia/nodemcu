@@ -2,7 +2,7 @@
 #include <ESP8266WiFi.h>
 #include "wifi_logins.h"
 
-Wifi wifi = lyv;
+WifiLogin wifi = lyv;
 
 // Lolin NodeMCU uses GPIO2 for LED.
 // https://arduino.stackexchange.com/questions/38477/does-the-node-mcu-v3-lolin-not-have-a-builtin-led

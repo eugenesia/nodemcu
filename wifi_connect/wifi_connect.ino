@@ -1,31 +1,23 @@
 // Import required libraries
 #include <ESP8266WiFi.h>
+#include "wifi_logins.h"
 
-// WiFi parameters
-// SSID 32 chars may be too long
-// http://forum.arduino.cc/index.php?topic=295728.0
-// const char* ssid = "QEKN Hyperoptic 1Gb Fibre 2.4GHz";
-// const char* password = "";
-
-// const char* ssid = "SKY";
-// const char* password = "";
-
-const char* ssid = "LY";
-const char* password = "";
+Wifi wifi = lyv;
 
 // Lolin NodeMCU uses GPIO2 for LED.
-#define LED_OUT 2
+// https://arduino.stackexchange.com/questions/38477/does-the-node-mcu-v3-lolin-not-have-a-builtin-led
+#define LED_BUILTIN 2
 
 void setup(void)
 {
   // Setup LED to blink to show it's alive
-  pinMode(LED_OUT, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   
   // Start Serial
   // Serial only works at 9600 baud according to instructions under board
   Serial.begin(9600);
   // Connect to WiFi
-  WiFi.begin(ssid, password);
+  WiFi.begin(wifi.ssid, wifi.password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -36,8 +28,6 @@ void setup(void)
   Serial.println("WiFi connected");
   // Print the IP address
   Serial.println(WiFi.localIP());
-
-
 }
 
 void loop() {
@@ -45,8 +35,8 @@ void loop() {
 }
 
 void blink() {
-  digitalWrite(LED_OUT, HIGH);
+  digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
-  digitalWrite(LED_OUT, LOW);
+  digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
 }

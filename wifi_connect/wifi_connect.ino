@@ -6,7 +6,8 @@ Wifi wifi = lyv;
 
 // Lolin NodeMCU uses GPIO2 for LED.
 // https://arduino.stackexchange.com/questions/38477/does-the-node-mcu-v3-lolin-not-have-a-builtin-led
-#define LED_BUILTIN 2
+// LED_BUILTIN has already been set to 2 - no need to redefine.
+// #define LED_BUILTIN 2
 
 void setup(void)
 {

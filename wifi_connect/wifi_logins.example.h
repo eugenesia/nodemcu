@@ -6,7 +6,8 @@
 // In ESP8266 code for Arduino
 // #define WL_SSID_MAX_LENGTH 32
 // https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/include/wl_definitions.h#L30
-
+//
+// Note that Lolin NodeMCU CANNOT connect to 5Ghz networks. 2.4Ghz works.
 struct WifiLogin {
   const char* ssid;
   const char* password;

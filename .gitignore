@@ -53,3 +53,7 @@ dkms.conf
 
 # IDE configs
 .vscode
+
+# Mac temp files
+.DS_Store
+

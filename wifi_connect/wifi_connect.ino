@@ -19,13 +19,13 @@ void setup(void)
   Serial.begin(9600);
   // Connect to WiFi
   WiFi.begin(wifi.ssid, wifi.password);
+  Serial.println(wifi.ssid);
 
   char *statusStr;
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print('\n');
     statusStr = wifiStatusStr(WiFi.status());
-    Serial.print(statusStr);
+    Serial.println(statusStr);
     blink();
   }
   Serial.println("");

@@ -46,14 +46,13 @@ void loop() {
   // This will send the request to the server
   client.print(String("GET /") + " HTTP/1.1\r\n" +
     "Host: " + host + "\r\n" + "Connection: close\r\n\r\n");
-  delay(10);
+  delay(1000);
 
   // Read all the lines of the reply from server and print them to Serial
   while(client.available()) {
-    // Reading until "\r" gets nothing - change to "\n" as per docs
-    // https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html#read-reply-from-the-server
-    String line = client.readStringUntil('\n');
-    Serial.print(line);
+    // See https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html#read-reply-from-the-server
+    String line = client.readStringUntil('\r');
+    Serial.println(line);
   }
 
   Serial.println();
